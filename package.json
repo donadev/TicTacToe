@@ -2,7 +2,7 @@
   "name": "tictactoe",
   "version": "1.0.0",
   "description": "Play with TicTacToe directly from Github!",
-  "main": "index.js",
+  "main": "reload.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
