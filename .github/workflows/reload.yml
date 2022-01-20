@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '12'
       - run: npm ci
-      - run: node index.js
+      - run: node reload.js
       - run: git config --global user.email "luigi.donadel@gmail.com"
       - run: git config --global user.name "donadev"
       - run: git remote set-url --push origin https://donadev:$GITHUB_TOKEN@github.com/donadev/TicTacToe
