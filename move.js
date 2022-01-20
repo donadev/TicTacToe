@@ -36,7 +36,8 @@ const checkTie = (matrix) => {
     return tie
 }
 const getCoords = (i) => {
-    return {x: parseInt(i / 3), y: parseInt(i % 3)}
+    const a = i - 1
+    return {x: parseInt(a / 3), y: parseInt(a % 3)}
 }
 const set = (i, symbol) => {
     const coords = getCoords(i), x = coords.x, y = coords.y
