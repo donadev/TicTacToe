@@ -2,6 +2,7 @@ name: reload
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -15,5 +16,5 @@ jobs:
           node-version: '12'
       - run: npm ci
       - run: node index.js
-      - run: git remote set-url --push origin https://donadev:$GITHUB_TOKEN@github.com/TicTacToe
+      - run: git remote set-url --push origin https://donadev:$GITHUB_TOKEN@github.com/donadev/TicTacToe
       - run: git commit -m "Refreshed output" & git push
