@@ -11,5 +11,5 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
-      - run: node run
+      - run: node index.js
       - run: git commit -m "Refreshed output" & git push
