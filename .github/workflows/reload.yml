@@ -1,4 +1,4 @@
-name: main
+name: reload
 
 on:
   workflow_dispatch:
