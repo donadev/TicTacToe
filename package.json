@@ -18,6 +18,7 @@
   "homepage": "https://github.com/donadev/TicTacToe#readme",
   "dependencies": {
     "fs": "^0.0.1-security",
-    "image-rotation": "^1.0.6"
+    "image-rotation": "^1.0.6",
+    "sharp": "^0.29.3"
   }
 }
