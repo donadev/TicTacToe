@@ -13,4 +13,3 @@ Luigi Donadel - [@luigidonadel](https://twitter.com/luigidonadel) - luigi.donade
 
 Project Link: [https://github.com/donadev/blockchain](https://github.com/donadev/blockchain)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
