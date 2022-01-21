@@ -17,8 +17,8 @@ const checkWinSymbol = (matrix, symbol) => {
         [1, 2, 3], [3, 6, 9], [1, 4, 7], [7, 8, 9], [1, 5, 9], [3, 5, 7], [2, 4, 8], [4, 5, 6]
     ]
     for(pattern of patterns) {
-        const coords = pattern.map(i => i - 1).map(getCoords)
-        const won = coords.every(coords => matrix[coords.x][coords.y] == symbol)
+        const coords = pattern.map(getCoords)
+        const won = coords.every(coord => matrix[coord.x][coord.y] == symbol)
         if(won) { 
             console.log(`🏆 ${symbol} symbol won!!!`)
             return true 
