@@ -1,1 +1,2 @@
 donadev,x,3
+donadev,o,6
