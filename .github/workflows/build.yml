@@ -17,4 +17,5 @@ jobs:
       - run: git config --global user.email "luigi.donadel@gmail.com"
       - run: git config --global user.name "donadev"
       - run: git remote set-url --push origin https://donadev:$GITHUB_TOKEN@github.com/donadev/TicTacToe
+      - run: git add .
       - run: git commit -am "Built" && git push
