@@ -30,7 +30,8 @@ const getImages = (matrix : Matrix) : string[] => {
     return images
 }
 
-export const refreshImage = async (matrix : Matrix, outputPath : string) => {
+export const refreshImage = async (matrix : Matrix, outputPath : string, freshFilePath : string) => {
     const images = getImages(matrix)
-    return await overlapAndSave(images, outputPath)
+    await overlapAndSave(images, outputPath)
+    fs.copyFileSync(outputPath, freshFilePath)
 }

@@ -37,7 +37,7 @@ export const nextTurnSymbol = (moves : Move[]) : string | null => {
 }
 export const newGame = async () => {
     if (!fs.existsSync("./games/current")){
-        fs.mkdirSync("./games/current", {recursive: true});
+        fs.mkdirSync("./games/current/cachebypass", {recursive: true});
     }
     const game = {matrix: [["", "", ""], ["", "", ""], ["", "", ""]], moves: [], name: new Date().toISOString(), ended: false, winningSymbol : null}
     writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), game.name)

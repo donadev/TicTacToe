@@ -2,7 +2,7 @@
 
 This game started on $DATE
 
-![alt text](https://github.com/donadev/TicTacToe/blob/main/games/$GAME_NAME/output.png?raw=true)
+![alt text](https://github.com/donadev/TicTacToe/blob/main/games/$GAME_NAME/cachebypass/$TIMESTAMP.png?raw=true)
 
 ### Play now
 $PLAY_NOW

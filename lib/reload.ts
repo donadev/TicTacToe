@@ -11,9 +11,11 @@ import { embedReadme } from "./generators/readme";
 export const reloadCurrentGame = async (game : Game, nextSymbol : string) => {
     console.log("reloadCurrentGame", game)
     const outputImagePath = pathForCurrentGame(OUTPUT_IMAGE_NAME)
+    const timestamp = new Date().getTime()
+    const freshImagePath = pathForCurrentGame(`cachebypass/${timestamp}.png`)
     const outputReadme = pathForCurrentGame(README_FILE_NAME)
-    await refreshImage(game.matrix, outputImagePath)
-    const content = refreshReadme(game, nextSymbol, outputReadme)
+    await refreshImage(game.matrix, outputImagePath, freshImagePath)
+    const content = refreshReadme(game, nextSymbol, timestamp, outputReadme)
     propagateReadme(content)
 }
 
