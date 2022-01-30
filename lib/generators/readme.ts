@@ -64,7 +64,7 @@ const instructions = (matrix : Matrix) : string => {
         .reduce((acc : string, i : number) => {
             const coords = getCoords(i)
             const value = matrix[coords.x][coords.y]
-            return acc.replace(`$${i}`, value == "" ? `${i}` : value)
+            return acc.replace(`$${i}`, value.trim() == "" ? `${i}` : value)
         }, _instructions)
 }
 
