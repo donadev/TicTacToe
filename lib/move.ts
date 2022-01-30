@@ -12,6 +12,7 @@ const canExecute = (move : Move, game : Game) => {
     //non posso inserire un simbolo diverso da x|o
     if(!(move.symbol == "x") && !(move.symbol == "o")) throw Error("Non puoi inserire un simbolo diverso da x oppure o")
     const coords = getCoords(move.index), x = coords.x, y = coords.y
+    console.log("Coordinates", coords)
     const place = game.matrix[x][y]
     //non posso inserire dove il campo è occupato
     if(place == "x" || place == "o") throw Error("Non puoi inserire in questa posizione, il campo è già occupato")
@@ -24,6 +25,7 @@ const canExecute = (move : Move, game : Game) => {
 export const execute = async (move : Move) => {
     const game = get()
     console.log("Move", move)
+    console.log("Game", game)
     if(!canExecute(move, game)) return
     console.log("Execution authorized")
     const coords = getCoords(move.index), x = coords.x, y = coords.y
