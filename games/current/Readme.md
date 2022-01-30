@@ -1,6 +1,6 @@
 # Current Game
 
-This game started on 30/1/2022, 13:52:56
+This game started on 1/30/2022, 12:52:56 PM
 
 ![alt text](https://github.com/donadev/TicTacToe/blob/main/games/current/output.png?raw=true)
 
