@@ -5,6 +5,7 @@ import { pathForCurrentGame, GAME_NAME_FILE_NAME, MOVES_FILE_NAME, MATRIX_FILE_N
 import { reloadCurrentGame } from "./reload";
 import { Matrix } from "./data/matrix";
 import { embedReadme } from "./generators/readme";
+import { Move } from "./data/moves";
 
 export type Coord = {x: number, y : number}
 
@@ -24,6 +25,12 @@ const saveCurrentGame = (name : string) => {
     const src = "./games/current"
     const dest = `./games/${name}`
     fs_extra.moveSync(src, dest)
+}
+
+export const nextTurnSymbol = (moves : Move[]) : string | null => {
+    if(moves.length == 0) return null
+    return moves[moves.length - 1].symbol == "x" ? "o" : "x"
+
 }
 export const newGame = () => {
     if (!fs.existsSync("./games/current")){
