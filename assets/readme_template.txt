@@ -9,13 +9,8 @@ $PLAY_NOW
 
 ### Users playing
 The following is a list of every user that has played this game
-### Team ⭕️
-
-$TEAM_O
-
-### Team ❌
-
-$TEAM_X
+- Team ⭕️ : $TEAM_O
+- Team ❌ : $TEAM_X
 
 
 ### Game status

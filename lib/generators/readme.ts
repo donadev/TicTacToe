@@ -29,7 +29,9 @@ const getUsers = (moves : Move[]) : Map<string, string[]> => {
 }
 
 const generateUsersLine = (users : string[]) : string => {
-    return (users || []).map(user => `[${user}](https://github.com/${user})`).join(", ")
+    const newUsers = users || []
+    if(newUsers.length == 0) return "No users"
+    return newUsers.map(user => `[${user}](https://github.com/${user})`).join(", ")
 }
 const generateGameStatusLine = (ended : boolean, winningSymbol : string | null) : string => {
     if(ended === true) {
