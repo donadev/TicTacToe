@@ -2,6 +2,7 @@ import  * as fs from "fs";
 import { MAIN_README_ASSET_PATH, pathForCurrentGame, README_ASSET_PATH, README_FILE_NAME } from "../constants";
 import { Matrix } from "../data/matrix";
 import { Move } from "../data/moves";
+import { nextTurnSymbol } from "../game";
 
 
 const getTemplate = () : string => {
@@ -53,17 +54,24 @@ Please remind that if you break the game rules the move will not be applied.
 If the move is authorized, it will display with your name on the readme in approx 20 seconds.
 `
 
+const buildPlayNow = (nextSymbol : string | null) : string => {
+    if(nextSymbol) {
+        const issueTitle = encodeURIComponent(`${nextSymbol} $`)
+        const issueBody = encodeURIComponent(instructions)
+        return `To execute the next move, click [here](https://github.com/donadev/TicTacToe/issues/new?title=${issueTitle}&body=${issueBody})`
+    } else {
+        return "The game is ended, cannot play another move."
+    }
+}
+
 const generate = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null, nextSymbol : string | null) : string => {
     const folder = ended ? date : "current"
     const users = getUsers(moves)
     const prettyDate = new Date(date).toLocaleString()
-    const issueTitle = nextSymbol ? `${nextSymbol} $` : "Error"
-    const issueBody = nextSymbol ? instructions : "Game has ended."
     return getTemplate()
         .replace("$GAME_NAME", folder)
         .replace("$DATE", prettyDate)
-        .replace("$ISSUE_TITLE", encodeURIComponent(issueTitle))
-        .replace("$ISSUE_BODY", encodeURIComponent(issueBody))
+        .replace("$PLAY_NOW", buildPlayNow(nextSymbol))
         .replace("$TEAM_O", generateUsersLine(users["o"]))
         .replace("$TEAM_X", generateUsersLine(users["x"]))
         .replace("$GAME_STATUS", generateGameStatusLine(ended, winningSymbol))
