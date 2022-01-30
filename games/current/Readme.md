@@ -1,6 +1,6 @@
 # Current Game
 
-This game started on 1/30/2022, 1:24:51 PM
+This game started on 30/1/2022, 14:39:17
 
 ![alt text](https://github.com/donadev/TicTacToe/blob/main/games/current/output.png?raw=true)
 
@@ -11,11 +11,11 @@ To execute the next move, click [here](https://github.com/donadev/TicTacToe/issu
 The following is a list of every user that has played this game
 ### Team ⭕️
 
-[donadev](https://github.com/donadev)
+
 
 ### Team ❌
 
-[donadev](https://github.com/donadev)
+
 
 
 ## Game status
