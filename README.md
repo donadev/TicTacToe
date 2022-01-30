@@ -6,7 +6,7 @@ With this repo you can play TicTacToe with other viewers of this repo! Enjoy!
 
 # Current Game
 
-This game started on 30/1/2022, 13:19:42
+This game started on 30/1/2022, 13:52:56
 
 ![alt text](https://github.com/donadev/TicTacToe/blob/main/games/current/output.png?raw=true)
 
@@ -28,10 +28,7 @@ Game is currently in progress. Who will win?
 ## Past Games 
 The following is the list of past games. Click on any to view the winners!
 
-- [2022-01-30T12:18:47.036Z](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T12:18:47.036Z)
-- [2022-01-30T12:18:49.557Z](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T12:18:49.557Z)
-- [2022-01-30T12:19:10.177Z](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T12:19:10.177Z)
-- [2022-01-30T12:19:41.470Z](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T12:19:41.470Z)
+- [2022-01-30T12:52:56.074Z](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T12:52:56.074Z)
 
 
 <!-- CONTACT -->

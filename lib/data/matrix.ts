@@ -9,11 +9,11 @@ export type Matrix = string[][]
 
 const pad = (matrix : Matrix) : Matrix => {
     while(matrix.length < 3) {
-        matrix.push(['', '', ''])
+        matrix.push([' ', ' ', ' '])
     }
     for(var row of matrix) {
         while(row.length < 3) {
-            row.push('')
+            row.push(' ')
         }
     }
     return matrix
