@@ -4,6 +4,7 @@ import * as fs_extra from 'fs-extra';
 import { pathForCurrentGame, GAME_NAME_FILE_NAME, MOVES_FILE_NAME, MATRIX_FILE_NAME, README_PATH } from "./constants";
 import { reloadCurrentGame } from "./reload";
 import { Matrix } from "./data/matrix";
+import { embedReadme } from "./generators/readme";
 
 export type Coord = {x: number, y : number}
 
@@ -25,14 +26,16 @@ const saveCurrentGame = (name : string) => {
     fs_extra.moveSync(src, dest)
 }
 export const newGame = () => {
-    writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), new Date().toDateString())
+    writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), new Date().toISOString())
     createEmptyFile(pathForCurrentGame(MOVES_FILE_NAME))
     createEmptyFile(pathForCurrentGame(MATRIX_FILE_NAME))
     reloadCurrentGame()
     propagateReadme(pathForCurrentGame(README_PATH))
 }
 function propagateReadme(readmePath : string) {
-    fs.copyFileSync(readmePath, README_PATH)
+    const readme = fs.readFileSync(readmePath, 'utf-8')
+    const embedded = embedReadme(readme)
+    fs.writeFileSync(README_PATH, embedded)
 }
 export const getCoords = (i : number) : Coord => {
     const a = i - 1

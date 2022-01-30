@@ -1,0 +1,6 @@
+,undefined,NaN
+donadev,x,1
+donadev,x,1
+donadev,x,1
+evilGigi,o,2
+donadev,x,3

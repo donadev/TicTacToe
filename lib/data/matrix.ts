@@ -7,10 +7,22 @@ const path = pathForCurrentGame(MATRIX_FILE_NAME)
 
 export type Matrix = string[][]
 
+const pad = (matrix : Matrix) : Matrix => {
+    while(matrix.length < 3) {
+        matrix.push(['', '', ''])
+    }
+    for(var row of matrix) {
+        while(row.length < 3) {
+            row.push('')
+        }
+    }
+    return matrix
+}
+
 export const read = () : Matrix => {
     const file = fs.readFileSync(path, 'utf8')
-    return file.split("\n").map(s => Array.from(s))
-
+    const output = file.split("\n").map(s => Array.from(s))
+    return pad(output)
 }
 
 export const write = (matrix : Matrix) => {

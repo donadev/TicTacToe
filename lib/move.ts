@@ -3,6 +3,7 @@ import * as matrixRepo from "./data/matrix"
 import * as movesRepo from "./data/moves"
 import { Move } from "./data/moves"
 import { checkWin, checkTie, endCurrentGame, winningSymbol, getCoords } from "./game"
+import { reloadCurrentGame } from "./reload"
 
 
 
@@ -21,6 +22,7 @@ const execute = (move : Move) => {
     if(checkWin(matrix) || checkTie(matrix)) {
         endCurrentGame(matrix)
     }
+    reloadCurrentGame()
 }
 
 var args = process.argv.slice(2);

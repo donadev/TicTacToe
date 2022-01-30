@@ -20,5 +20,5 @@ $GAME_STATUS
 
 Luigi Donadel - [@luigidonadel](https://twitter.com/luigidonadel) - luigi.donadel@gmail.com
 
-Project Link: [https://github.com/donadev/blockchain](https://github.com/donadev/blockchain)
+Project Link: [https://github.com/donadev/TicTacToe](https://github.com/donadev/TicTacToe)
 

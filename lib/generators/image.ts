@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import * as sharp from 'sharp'
+import sharp from 'sharp'
 import { FIELD_ASSET_PATH } from '../constants'
 import { Matrix } from '../data/matrix'
 
@@ -11,8 +11,8 @@ const imageFor = (row : number, column : number, symbol : string) => {
 const overlapAndSave = (images : string[], outputPath : string) => {
     if(images == null || images.length == 0) return
     sharp(FIELD_ASSET_PATH)
-    .composite(images.map(image => {
-        return {input: image}
+    .composite(images.map(image => { 
+        return {input: image} 
     }))
     .toFile(outputPath, function(err) {
         console.log("error: ", err)
