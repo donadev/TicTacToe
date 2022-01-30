@@ -36,7 +36,7 @@ export const execute = async (move : Move) => {
     if(checkWin(game.matrix) || checkTie(game.matrix)) {
         await endCurrentGame(game)
     } else {
-        await reloadCurrentGame(game)
+        await reloadCurrentGame(game, nextTurnSymbol(game.moves))
     }
 }
 

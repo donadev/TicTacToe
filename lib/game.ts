@@ -21,7 +21,7 @@ const writeFile = (path : string, data : string) => {
 export const endCurrentGame = async (game : Game) => {
     game.ended = true
     game.winningSymbol = winningSymbol(game.matrix)
-    await reloadCurrentGame(game)
+    await reloadCurrentGame(game, null)
     saveCurrentGame(game.name)
     newGame()
 }
@@ -44,7 +44,7 @@ export const newGame = async () => {
     writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), game.name)
     createEmptyFile(pathForCurrentGame(MOVES_FILE_NAME))
     createEmptyFile(pathForCurrentGame(MATRIX_FILE_NAME))
-    await reloadCurrentGame(game)
+    await reloadCurrentGame(game, 'x')
     propagateReadme(pathForCurrentGame(README_FILE_NAME))
 }
 export const propagateReadme = (readmePath : string) => {

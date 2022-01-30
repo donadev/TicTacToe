@@ -41,21 +41,36 @@ const generateGameStatusLine = (ended : boolean, winningSymbol : string | null) 
         return "Game is currently in progress. Who will win?"
     }
 }
+const instructions = `
+Please replace in the title the char "$" with the index of your move, following the schema:
+1 | 2 | 3
+---------
+4 | 5 | 6
+---------
+7 | 8 | 9
 
-const generate = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null) : string => {
+Please remind that if you break the game rules the move will not be applied.
+If the move is authorized, it will display with your name on the readme in approx 20 seconds.
+`
+
+const generate = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null, nextSymbol : string | null) : string => {
     const folder = ended ? date : "current"
     const users = getUsers(moves)
     const prettyDate = new Date(date).toLocaleString()
+    const issueTitle = nextSymbol ? `${nextSymbol} $` : "Error"
+    const issueBody = nextSymbol ? instructions : "Game has ended."
     return getTemplate()
         .replace("$GAME_NAME", folder)
         .replace("$DATE", prettyDate)
+        .replace("$ISSUE_TITLE", encodeURIComponent(issueTitle))
+        .replace("$ISSUE_BODY", encodeURIComponent(issueBody))
         .replace("$TEAM_O", generateUsersLine(users["o"]))
         .replace("$TEAM_X", generateUsersLine(users["x"]))
         .replace("$GAME_STATUS", generateGameStatusLine(ended, winningSymbol))
 }
 
-export const refreshReadme = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null, path : string) => {
-    const readme = generate(moves, date, ended, winningSymbol)
+export const refreshReadme = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null, nextSymbol : string | null, path : string) => {
+    const readme = generate(moves, date, ended, winningSymbol, nextSymbol)
     writeReadme(path, readme)
 }
 
