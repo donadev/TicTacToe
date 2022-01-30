@@ -13,7 +13,7 @@ export const reloadCurrentGame = async (game : Game, nextSymbol : string) => {
     const outputImagePath = pathForCurrentGame(OUTPUT_IMAGE_NAME)
     const outputReadme = pathForCurrentGame(README_FILE_NAME)
     await refreshImage(game.matrix, outputImagePath)
-    const content = refreshReadme(game.moves, game.name, game.ended, game.winningSymbol, nextSymbol, outputReadme)
+    const content = refreshReadme(game, nextSymbol, outputReadme)
     propagateReadme(content)
 }
 

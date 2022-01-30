@@ -39,7 +39,7 @@ export const newGame = async () => {
     if (!fs.existsSync("./games/current")){
         fs.mkdirSync("./games/current", {recursive: true});
     }
-    const game = {matrix: [], moves: [], name: new Date().toISOString(), ended: false, winningSymbol : null}
+    const game = {matrix: [["", "", ""], ["", "", ""], ["", "", ""]], moves: [], name: new Date().toISOString(), ended: false, winningSymbol : null}
     writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), game.name)
     createEmptyFile(pathForCurrentGame(MOVES_FILE_NAME))
     createEmptyFile(pathForCurrentGame(MATRIX_FILE_NAME))
