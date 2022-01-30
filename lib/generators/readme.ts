@@ -69,9 +69,10 @@ const generate = (moves : Move[], date : string, ended : boolean, winningSymbol 
         .replace("$GAME_STATUS", generateGameStatusLine(ended, winningSymbol))
 }
 
-export const refreshReadme = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null, nextSymbol : string | null, path : string) => {
+export const refreshReadme = (moves : Move[], date : string, ended : boolean, winningSymbol : string | null, nextSymbol : string | null, path : string) : string => {
     const readme = generate(moves, date, ended, winningSymbol, nextSymbol)
     writeReadme(path, readme)
+    return readme
 }
 
 const getPastGameList = () : string[] => {
@@ -82,7 +83,7 @@ const getPastGameText = (games : string[]) : string => {
     return games.map(game => `- [${game}](https://github.com/donadev/TicTacToe/blob/main/games/${game})`).join("\n")
 }
 
-export const embedReadme = (readme: string) => {
+export const embedReadme = (readme: string) : string => {
     const pastGames = getPastGameList()
     const pastGamesText = getPastGameText(pastGames)
     return getMainTemplate()

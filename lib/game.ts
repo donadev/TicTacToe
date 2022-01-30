@@ -6,7 +6,6 @@ import * as fs_extra from 'fs-extra';
 import { pathForCurrentGame, GAME_NAME_FILE_NAME, MOVES_FILE_NAME, MATRIX_FILE_NAME, README_PATH, README_FILE_NAME } from "./constants";
 import { reloadCurrentGame } from "./reload";
 import { Matrix } from "./data/matrix";
-import { embedReadme } from "./generators/readme";
 import { Move } from "./data/moves";
 
 export type Coord = {x: number, y : number}
@@ -45,12 +44,6 @@ export const newGame = async () => {
     createEmptyFile(pathForCurrentGame(MOVES_FILE_NAME))
     createEmptyFile(pathForCurrentGame(MATRIX_FILE_NAME))
     await reloadCurrentGame(game, 'x')
-    propagateReadme(pathForCurrentGame(README_FILE_NAME))
-}
-export const propagateReadme = (readmePath : string) => {
-    const readme = fs.readFileSync(readmePath, 'utf-8')
-    const embedded = embedReadme(readme)
-    fs.writeFileSync(README_PATH, embedded)
 }
 export const getCoords = (i : number) : Coord => {
     const a = i - 1
