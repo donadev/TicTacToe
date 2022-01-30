@@ -26,13 +26,16 @@ const saveCurrentGame = (name : string) => {
     fs_extra.moveSync(src, dest)
 }
 export const newGame = () => {
+    if (!fs.existsSync("./games/current")){
+        fs.mkdirSync("./games/current");
+    }
     writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), new Date().toISOString())
     createEmptyFile(pathForCurrentGame(MOVES_FILE_NAME))
     createEmptyFile(pathForCurrentGame(MATRIX_FILE_NAME))
     reloadCurrentGame()
     propagateReadme(pathForCurrentGame(README_PATH))
 }
-function propagateReadme(readmePath : string) {
+export const propagateReadme = (readmePath : string) => {
     const readme = fs.readFileSync(readmePath, 'utf-8')
     const embedded = embedReadme(readme)
     fs.writeFileSync(README_PATH, embedded)

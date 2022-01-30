@@ -8,13 +8,14 @@ import { reloadCurrentGame } from "./reload"
 
 
 const execute = (move : Move) => {
+    if(!(move.symbol == "x") && !(move.symbol == "o")) return
     const coords = getCoords(move.index), x = coords.x, y = coords.y
-    console.log(x, y, symbol)
+    console.log(x, y, move.symbol)
     var matrix = matrixRepo.read()
     console.log("matrix", matrix)
     const place = matrix[x][y]
     console.log("place", place)
-    if(place != "x" && place != "o") matrix[x][y] = symbol
+    if(place != "x" && place != "o") matrix[x][y] = move.symbol
     console.log("matrix", matrix)
     matrixRepo.write(matrix)
     const moves = movesRepo.read().concat([move])

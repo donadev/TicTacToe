@@ -7,6 +7,7 @@ import * as movesRepo from "./data/moves"
 import * as nameRepo from "./data/name"
 
 import { pathForCurrentGame, OUTPUT_IMAGE_NAME, README_FILE_NAME } from "./constants"
+import { propagateReadme } from "./game"
 
 
 export const reloadCurrentGame = (ended : boolean = false, winningSymbol : string | null = null) => {
@@ -15,4 +16,5 @@ export const reloadCurrentGame = (ended : boolean = false, winningSymbol : strin
     const outputReadme = pathForCurrentGame(README_FILE_NAME)
     refreshImage(matrix, outputImagePath)
     refreshReadme(moves, date, ended, winningSymbol, outputReadme)
+    propagateReadme(outputReadme)
 }

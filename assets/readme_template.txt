@@ -13,12 +13,3 @@ $TEAM_X
 
 ## Game status
 $GAME_STATUS
-
-
-<!-- CONTACT -->
-## Contact
-
-Luigi Donadel - [@luigidonadel](https://twitter.com/luigidonadel) - luigi.donadel@gmail.com
-
-Project Link: [https://github.com/donadev/TicTacToe](https://github.com/donadev/TicTacToe)
-

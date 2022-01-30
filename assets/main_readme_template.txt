@@ -8,7 +8,7 @@ With this repo you can play TicTacToe with other viewers of this repo! Enjoy!
 
 $README
 
-##Past Games 
+## Past Games 
 The following is the list of past games. Click on any to view the winners!
 
 $PAST_GAMES

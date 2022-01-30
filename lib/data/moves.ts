@@ -8,6 +8,7 @@ export type Move = {user : string, symbol : string, index : number}
 
 export const read = () : Move[] => {
     const file = fs.readFileSync(path, 'utf8')
+    if(file == "") return []
     return file.split("\n").map(line => {
         const values = line.split(",")
         return {user: values[0], symbol: values[1], index: parseInt(values[2])}

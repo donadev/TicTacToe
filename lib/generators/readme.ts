@@ -17,11 +17,12 @@ const writeReadme = (path, data : string) => {
 
 const getUsers = (moves : Move[]) : Map<string, string[]> => {
     let output = new Map<string, string[]>()
+    output["x"] = []
+    output["o"] = []
     moves.forEach(move => {
-        let array = output[move.symbol]
-        array = array || []
-        if(array.find(move.user) == null) {
-            array.push(move.user)
+        console.log(move)
+        if(output[move.symbol].indexOf(move.user) == -1) {
+            output[move.symbol].push(move.user)
         }
     })
     return output
