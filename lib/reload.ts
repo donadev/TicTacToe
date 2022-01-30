@@ -14,5 +14,5 @@ export const reloadCurrentGame = (ended : boolean = false, winningSymbol : strin
     const outputImagePath = pathForCurrentGame(OUTPUT_IMAGE_NAME)
     const outputReadme = pathForCurrentGame(README_FILE_NAME)
     refreshImage(matrix, outputImagePath)
-    refreshReadme(matrix, moves, date, ended, winningSymbol, outputReadme)
+    refreshReadme(moves, date, ended, winningSymbol, outputReadme)
 }
