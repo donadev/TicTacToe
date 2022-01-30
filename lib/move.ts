@@ -45,4 +45,4 @@ const symbol = args[1]
 const index = parseInt(args[2])
 const move : Move = {user, symbol, index}
 
-execute(move)
+execute(move).then(console.log).catch(console.error)
