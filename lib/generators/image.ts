@@ -9,7 +9,6 @@ const imageFor = (row : number, column : number, symbol : string) => {
 }
 
 const overlapAndSave = (images : string[], outputPath : string) => {
-    if(images == null || images.length == 0) return
     sharp(FIELD_ASSET_PATH)
     .composite(images.map(image => { 
         return {input: image} 

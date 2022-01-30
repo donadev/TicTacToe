@@ -6,7 +6,7 @@ With this repo you can play TicTacToe with other viewers of this repo! Enjoy!
 
 # Current Game
 
-This game started on 30/1/2022, 12:37:20
+This game started on 30/1/2022, 12:39:25
 
 ![alt text](https://github.com/donadev/TicTacToe/blob/main/games/current/output.png?raw=true)
 
