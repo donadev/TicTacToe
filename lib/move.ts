@@ -31,8 +31,8 @@ export const execute = async (move : Move) => {
     const coords = getCoords(move.index), x = coords.x, y = coords.y
     game.matrix[x][y] = move.symbol
     matrixRepo.write(game.matrix)
-    const newMoves = game.moves.concat([move])
-    movesRepo.write(newMoves)
+    game.moves.push(move)
+    movesRepo.write(game.moves)
     if(checkWin(game.matrix) || checkTie(game.matrix)) {
         await endCurrentGame(game)
     } else {
