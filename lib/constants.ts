@@ -11,21 +11,9 @@ export const OUTPUT_IMAGE_NAME = "output.png"
 export const README_PATH = `./${README_FILE_NAME}`
 
 
-export const pathForGame = (gameName, fileName) => {
+export const pathForGame = (gameName : string, fileName : string) : string => {
     return `./games/${gameName}/${fileName}.png`
 }
-export const pathForCurrentGame = (fileName) => {
+export const pathForCurrentGame = (fileName : string) : string => {
     return pathForGame("current", fileName)
 }
-/*
-
-games/{game_name}
-    - moves.txt
-    - matrix.txt
-    - date.txt //magari non serve
-    - Readme.md
-
-game_name = {current, any} any = iso_date
-
-*/
-

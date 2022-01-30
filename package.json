@@ -2,7 +2,7 @@
   "name": "tictactoe",
   "version": "1.0.0",
   "description": "Play with TicTacToe directly from Github!",
-  "main": "reload.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/donadev/TicTacToe#readme",
   "dependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/sharp": "^0.29.5",
     "fs": "^0.0.1-security",
+    "fs-extra": "^10.0.0",
     "image-rotation": "^1.0.6",
     "sharp": "^0.29.3"
   }
