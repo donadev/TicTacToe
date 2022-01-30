@@ -1,13 +1,16 @@
 import * as nameRepo from "./data/name";
+import * as matrixRepo from "./data/matrix"
+import * as movesRepo from "./data/moves"
 import * as fs from "fs";
 import * as fs_extra from 'fs-extra';
-import { pathForCurrentGame, GAME_NAME_FILE_NAME, MOVES_FILE_NAME, MATRIX_FILE_NAME, README_PATH } from "./constants";
+import { pathForCurrentGame, GAME_NAME_FILE_NAME, MOVES_FILE_NAME, MATRIX_FILE_NAME, README_PATH, README_FILE_NAME } from "./constants";
 import { reloadCurrentGame } from "./reload";
 import { Matrix } from "./data/matrix";
 import { embedReadme } from "./generators/readme";
 import { Move } from "./data/moves";
 
 export type Coord = {x: number, y : number}
+export type Game = {matrix: Matrix, moves: Move[], name: string, ended: boolean, winningSymbol : string | null}
 
 const createEmptyFile = (path : string) => {
     writeFile(path, "")
@@ -15,10 +18,11 @@ const createEmptyFile = (path : string) => {
 const writeFile = (path : string, data : string) => {
     fs.writeFileSync(path, data)
 }
-export const endCurrentGame = (matrix : Matrix) => {
-    const name = nameRepo.read()
-    reloadCurrentGame(true, winningSymbol(matrix))
-    saveCurrentGame(name)
+export const endCurrentGame = async (game : Game) => {
+    game.ended = true
+    game.winningSymbol = winningSymbol(game.matrix)
+    await reloadCurrentGame(game)
+    saveCurrentGame(game.name)
     newGame()
 }
 const saveCurrentGame = (name : string) => {
@@ -32,15 +36,16 @@ export const nextTurnSymbol = (moves : Move[]) : string | null => {
     return moves[moves.length - 1].symbol == "x" ? "o" : "x"
 
 }
-export const newGame = () => {
+export const newGame = async () => {
     if (!fs.existsSync("./games/current")){
-        fs.mkdirSync("./games/current");
+        fs.mkdirSync("./games/current", {recursive: true});
     }
-    writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), new Date().toISOString())
+    const game = {matrix: [], moves: [], name: new Date().toISOString(), ended: false, winningSymbol : null}
+    writeFile(pathForCurrentGame(GAME_NAME_FILE_NAME), game.name)
     createEmptyFile(pathForCurrentGame(MOVES_FILE_NAME))
     createEmptyFile(pathForCurrentGame(MATRIX_FILE_NAME))
-    reloadCurrentGame()
-    propagateReadme(pathForCurrentGame(README_PATH))
+    await reloadCurrentGame(game)
+    propagateReadme(pathForCurrentGame(README_FILE_NAME))
 }
 export const propagateReadme = (readmePath : string) => {
     const readme = fs.readFileSync(readmePath, 'utf-8')
@@ -76,4 +81,15 @@ export const checkTie = (matrix : Matrix) : boolean => {
     const tie = matrix.every(row => row.every(c => c == "o" || c == "x"))
     if(tie) console.log("Oh no!!! It's a tie!!!!")
     return tie
+}
+
+export const get = () : Game => {
+    const matrix = matrixRepo.read()
+    return {
+        matrix: matrixRepo.read(),
+        moves: movesRepo.read(),
+        name: nameRepo.read(),
+        ended: checkTie(matrix) || checkWin(matrix),
+        winningSymbol: winningSymbol(matrix)
+    }
 }

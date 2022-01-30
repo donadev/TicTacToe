@@ -1,6 +1,0 @@
-evilGygy,o,6
-evilGygy,o,6
-donadev,x,6
-evilGygy,o,3
-donadev,x,8
-evilGygy,o,9

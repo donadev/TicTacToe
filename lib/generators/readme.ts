@@ -32,11 +32,12 @@ const generateUsersLine = (users : string[]) : string => {
     return (users || []).map(user => `[${user}](https://github.com/${user})`).join(", ")
 }
 const generateGameStatusLine = (ended : boolean, winningSymbol : string | null) : string => {
-    if(ended) {
+    console.log("generateGameStatusLine", ended, winningSymbol)
+    if(ended === true) {
         switch(winningSymbol) {
-            case 'x': "Team ❌ WON! Congrats!"
-            case 'o': "Team ⭕️ WON! Congrats!"
-            default: "The game has ended in a tie!"
+            case 'x': return "Team ❌  WON! Congrats!"
+            case 'o': return "Team ⭕️  WON! Congrats!"
+            default: return "The game has ended in a tie!"
         }
     } else {
         return "Game is currently in progress. Who will win?"
