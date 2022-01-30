@@ -78,7 +78,7 @@ const buildPlayNow = (matrix : Matrix, nextSymbol : string | null) : string => {
     }
 }
 
-const generate = (game : Game, imageName : number, nextSymbol : string | null) : string => {
+const generate = (game : Game, imageName : string, nextSymbol : string | null) : string => {
     const folder = game.ended ? game.name : "current"
     const users = getUsers(game.moves)
     const prettyDate = new Date(game.name).toLocaleString()
@@ -92,7 +92,7 @@ const generate = (game : Game, imageName : number, nextSymbol : string | null) :
         .replace("$GAME_STATUS", generateGameStatusLine(game.ended, game.winningSymbol))
 }
 
-export const refreshReadme = (game : Game, nextSymbol : string | null, imageName : imageName, path : string) : string => {
+export const refreshReadme = (game : Game, nextSymbol : string | null, imageName : string, path : string) : string => {
     const readme = generate(game, imageName, nextSymbol)
     writeReadme(path, readme)
     return readme
