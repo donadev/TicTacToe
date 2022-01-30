@@ -32,6 +32,5 @@ const getImages = (matrix : Matrix) : string[] => {
 
 export const refreshImage = async (matrix : Matrix, outputPath : string) => {
     const images = getImages(matrix)
-    console.log("refreshImage", matrix, images)
     return await overlapAndSave(images, outputPath)
 }

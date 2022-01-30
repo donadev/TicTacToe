@@ -20,7 +20,6 @@ const getUsers = (moves : Move[]) : Map<string, string[]> => {
     output["x"] = []
     output["o"] = []
     moves.forEach(move => {
-        console.log(move)
         if(output[move.symbol].indexOf(move.user) == -1) {
             output[move.symbol].push(move.user)
         }
@@ -32,7 +31,6 @@ const generateUsersLine = (users : string[]) : string => {
     return (users || []).map(user => `[${user}](https://github.com/${user})`).join(", ")
 }
 const generateGameStatusLine = (ended : boolean, winningSymbol : string | null) : string => {
-    console.log("generateGameStatusLine", ended, winningSymbol)
     if(ended === true) {
         switch(winningSymbol) {
             case 'x': return "Team ❌  WON! Congrats!"
