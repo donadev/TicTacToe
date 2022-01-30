@@ -10,12 +10,12 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ISSUE_TITLE: ${{ github.event.issue.title }}
-      ISSUE_AUTHOR: ${{ github.event.issue.author }}
+      ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
     steps:
       - name: View issue information
         run: |
           echo "Issue title: $ISSUE_TITLE"
-          echo "Issue body: $ISSUE_AUTHOR"
+          echo "Issue author: $ISSUE_AUTHOR"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
