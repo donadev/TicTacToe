@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: View issue information
         run: |
-          echo "Issue title: ${{ ISSUE_TITLE }}"
-          echo "Issue body: ${{ ISSUE_AUTHOR }}"
+          echo "Issue title: $ISSUE_TITLE"
+          echo "Issue body: $ISSUE_AUTHOR"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
