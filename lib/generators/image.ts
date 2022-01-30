@@ -8,12 +8,12 @@ const imageFor = (row : number, column : number, symbol : string) => {
     return `assets/${symbol}/${id}.png` 
 }
 
-const overlapAndSave = async (images : string[], outputPath : string) => {
-    await sharp(FIELD_ASSET_PATH)
+const overlapAndSave = async (images : string[], outputPath : string) : Promise<Buffer> => {
+    return await sharp(FIELD_ASSET_PATH)
         .composite(images.map(image => {
             return { input: image }
         }))
-        .toFile(outputPath);
+        .toBuffer()
 }
 
 const getImages = (matrix : Matrix) : string[] => {
@@ -32,6 +32,7 @@ const getImages = (matrix : Matrix) : string[] => {
 
 export const refreshImage = async (matrix : Matrix, outputPath : string, freshFilePath : string) => {
     const images = getImages(matrix)
-    await overlapAndSave(images, outputPath)
-    fs.copyFileSync(outputPath, freshFilePath)
+    const buffer = await overlapAndSave(images, outputPath)
+    fs.writeFileSync(outputPath, buffer)
+    fs.writeFileSync(freshFilePath, buffer)
 }
