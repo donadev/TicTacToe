@@ -1,22 +1,34 @@
 name: reload
 
 on:
-  workflow_dispatch:
-  push:
+  issues:
+    types: [opened]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_AUTHOR: ${{ github.event.issue.author }}
     steps:
+      - name: View issue information
+        run: |
+          echo "Issue title: ${{ ISSUE_TITLE }}"
+          echo "Issue body: ${{ ISSUE_AUTHOR }}"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
       - run: npm ci
-      - run: node reload.js
+      - run: npm install -g typescript
+      - run: tsc lib/move.ts
+      - run: node build/lib/move.js $ISSUE_AUTHOR $ISSUE_TITLE
       - run: git config --global user.email "luigi.donadel@gmail.com"
       - run: git config --global user.name "donadev"
       - run: git remote set-url --push origin https://donadev:$GITHUB_TOKEN@github.com/donadev/TicTacToe
       - run: git commit -am "Refreshed output" && git push
+      - name: Close Issue
+        uses: peter-evans/close-issue@v1
+        with:
+          comment: Move persisted
