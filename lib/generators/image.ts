@@ -34,6 +34,6 @@ export const refreshImage = async (matrix : Matrix, outputPath : string, freshFi
     const images = getImages(matrix)
     const buffer = await overlap(images)
     console.log("Rendering images", outputPath, freshFilePath)
-    await fs.writeFile.__promisify__(outputPath, buffer)
-    await fs.writeFile.__promisify__(freshFilePath, buffer)
+    fs.writeFileSync(outputPath, buffer)
+    fs.writeFileSync(freshFilePath, buffer)
 }

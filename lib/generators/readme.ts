@@ -78,13 +78,13 @@ const buildPlayNow = (matrix : Matrix, nextSymbol : string | null) : string => {
     }
 }
 
-const generate = (game : Game, timestamp : number, nextSymbol : string | null) : string => {
+const generate = (game : Game, imageName : number, nextSymbol : string | null) : string => {
     const folder = game.ended ? game.name : "current"
     const users = getUsers(game.moves)
     const prettyDate = new Date(game.name).toLocaleString()
     return getTemplate()
         .replace("$GAME_NAME", folder)
-        .replace("$TIMESTAMP", `${timestamp}`)
+        .replace("$TIMESTAMP", `${imageName}`)
         .replace("$DATE", prettyDate)
         .replace("$PLAY_NOW", buildPlayNow(game.matrix, nextSymbol))
         .replace("$TEAM_O", generateUsersLine(users["o"]))
@@ -92,8 +92,8 @@ const generate = (game : Game, timestamp : number, nextSymbol : string | null) :
         .replace("$GAME_STATUS", generateGameStatusLine(game.ended, game.winningSymbol))
 }
 
-export const refreshReadme = (game : Game, nextSymbol : string | null, timestamp : number, path : string) : string => {
-    const readme = generate(game, timestamp, nextSymbol)
+export const refreshReadme = (game : Game, nextSymbol : string | null, imageName : imageName, path : string) : string => {
+    const readme = generate(game, imageName, nextSymbol)
     writeReadme(path, readme)
     return readme
 }
