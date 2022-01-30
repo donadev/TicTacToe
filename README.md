@@ -17,7 +17,7 @@ To execute the next move, click [here](https://github.com/donadev/TicTacToe/issu
 The following is a list of every user that has played this game
 ### Team ⭕️
 
-
+[donadev](https://github.com/donadev)
 
 ### Team ❌
 
