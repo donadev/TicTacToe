@@ -80,7 +80,11 @@ const getPastGameList = () : string[] => {
     return files
 }
 const getPastGameText = (games : string[]) : string => {
-    return games.map(game => `- [${game}](https://github.com/donadev/TicTacToe/blob/main/games/${game})`).join("\n")
+    return games
+    .map((isoDate, index) => [new Date(isoDate).toLocaleString(), index + 1, isoDate])
+    .map(([prettyDate, number, folder]) => `- [Game #${number} (${prettyDate})](https://github.com/donadev/TicTacToe/blob/main/games/${folder})`)
+    .reverse()
+    .join("\n")
 }
 
 export const embedReadme = (readme: string) : string => {

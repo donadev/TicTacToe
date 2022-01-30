@@ -1,8 +1,8 @@
 # Current Game
 
-This game started on 30/1/2022, 14:44:59
+This game started on 30/1/2022, 20:01:09
 
-![alt text](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T13:44:59.411Z/output.png?raw=true)
+![alt text](https://github.com/donadev/TicTacToe/blob/main/games/2022-01-30T19:01:09.092Z/output.png?raw=true)
 
 ## Play now
 To execute the next move, click [here](https://github.com/donadev/TicTacToe/issues/new?title=Error&body=Game%20has%20ended.)
