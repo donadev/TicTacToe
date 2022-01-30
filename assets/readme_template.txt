@@ -1,4 +1,4 @@
-# TicTacToe
+# Current Game
 
 This game started on $DATE
 
@@ -7,9 +7,13 @@ This game started on $DATE
 ## Users playing
 The following is a list of every user that has played this game
 ### Team ⭕️
+
 $TEAM_O
+
 ### Team ❌
+
 $TEAM_X
+
 
 ## Game status
 $GAME_STATUS

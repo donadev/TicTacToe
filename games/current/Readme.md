@@ -1,4 +1,4 @@
-# TicTacToe
+# Current Game
 
 This game started on 30/1/2022, 12:21:35
 
@@ -7,18 +7,13 @@ This game started on 30/1/2022, 12:21:35
 ## Users playing
 The following is a list of every user that has played this game
 ### Team ⭕️
+
 [evilGygy](https://github.com/evilGygy)
+
 ### Team ❌
+
+
 
 
 ## Game status
 Game is currently in progress. Who will win?
-
-
-<!-- CONTACT -->
-## Contact
-
-Luigi Donadel - [@luigidonadel](https://twitter.com/luigidonadel) - luigi.donadel@gmail.com
-
-Project Link: [https://github.com/donadev/TicTacToe](https://github.com/donadev/TicTacToe)
-

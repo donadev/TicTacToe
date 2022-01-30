@@ -4,8 +4,6 @@ Play TicTacToe directly from Github!
 
 With this repo you can play TicTacToe with other viewers of this repo! Enjoy!
 
-##Current Game
-
 $README
 
 ## Past Games 
