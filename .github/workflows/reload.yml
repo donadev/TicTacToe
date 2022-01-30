@@ -1,4 +1,4 @@
-name: reload
+name: move
 
 on:
   issues:
@@ -20,9 +20,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
-      - run: npm ci
-      - run: npm install -g typescript
-      - run: tsc
       - run: node build/lib/move.js $ISSUE_AUTHOR $ISSUE_TITLE
       - run: git config --global user.email "luigi.donadel@gmail.com"
       - run: git config --global user.name "donadev"
