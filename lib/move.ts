@@ -23,7 +23,9 @@ const canExecute = (move : Move, game : Game) => {
 
 export const execute = async (move : Move) => {
     const game = get()
+    console.log("Move", move)
     if(!canExecute(move, game)) return
+    console.log("Execution authorized")
     const coords = getCoords(move.index), x = coords.x, y = coords.y
     game.matrix[x][y] = move.symbol
     matrixRepo.write(game.matrix)
