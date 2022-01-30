@@ -22,7 +22,7 @@ jobs:
           node-version: '12'
       - run: npm ci
       - run: npm install -g typescript
-      - run: tsc lib/move.ts
+      - run: tsc
       - run: node build/lib/move.js $ISSUE_AUTHOR $ISSUE_TITLE
       - run: git config --global user.email "luigi.donadel@gmail.com"
       - run: git config --global user.name "donadev"
